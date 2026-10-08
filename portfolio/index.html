@@ -332,7 +332,7 @@ section{padding-block:112px}
     <span class="eyebrow">Game Client Developer · Unity / C# · Godot</span>
     <h1 aria-label="이명준"><span>이</span><span>명</span><span>준</span></h1>
     <p class="typed" aria-live="off"><span class="t" id="typed">AI와 함께 게임을 만드는 클라이언트 개발자</span><span class="caret"></span></p>
-    <p class="lead">게임 클라이언트 경력 <b>4년 2개월</b>. 제이커브이엔티에서 3매치 퍼즐 게임의 레벨툴과 UI/UX를 개발하고 <b>「버블헌터 오리진」</b>(Google Play 10만+)과 「왕관을 지켜라」를 출시했습니다. 사일로에서는 <b>「스냅픽셀」</b>의 핵심 UI 시스템과 토스 게임의 코어 로직을 만들었고, 지금은 Godot 4 모바일 게임의 <b>아웃게임</b>을 맡고 있습니다. 구현은 AI 에이전트에게 맡기고, 저는 AI가 정확하게 일하도록 <b>문서 구조와 검증 방식</b>을 설계합니다.</p>
+    <p class="lead">게임 클라이언트 경력 <b><span data-career-total>4년 2개월</span></b>. 제이커브이엔티에서 3매치 퍼즐 게임의 레벨툴과 UI/UX를 개발하고 <b>「버블헌터 오리진」</b>(Google Play 10만+)과 「왕관을 지켜라」를 출시했습니다. 사일로에서는 <b>「스냅픽셀」</b>의 핵심 UI 시스템과 토스 게임의 코어 로직을 만들었고, 지금은 Godot 4 모바일 게임의 <b>아웃게임</b>을 맡고 있습니다. 구현은 AI 에이전트에게 맡기고, 저는 AI가 정확하게 일하도록 <b>문서 구조와 검증 방식</b>을 설계합니다.</p>
     <div class="cta">
       <a class="btn primary" href="#profile">경력 보기 ↓</a>
       <a class="btn ghost" href="#projects">프로젝트</a>
@@ -340,7 +340,7 @@ section{padding-block:112px}
       <a class="btn ghost" href="https://github.com/LeeMyeungJun" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
     <dl class="facts">
-      <div><dt>CAREER</dt><dd>4년 2개월 · 사일로 재직 중</dd></div>
+      <div><dt>CAREER</dt><dd><span data-career-total>4년 2개월</span> · <span data-career-now>사일로</span> 재직 중</dd></div>
       <div><dt>MAIN</dt><dd>Unity · C#</dd></div>
       <div><dt>NOW</dt><dd>Godot 4.7 (C# · GDScript)</dd></div>
             <div><dt>AI</dt><dd>Claude Code · Codex · Gemini CLI · MCP</dd></div>
@@ -360,12 +360,13 @@ section{padding-block:112px}
   <div class="container">
     <div class="sec-head rv">
       <span class="eyebrow">Career</span>
-      <h2>경력 4년 2개월</h2>
-      <p>Unity · C# 게임 클라이언트로 두 회사에서 게임의 UI 시스템, 코어 로직, 개발 툴을 만들었습니다.</p>
+      <h2>경력 <span data-career-total>4년 2개월</span></h2>
+      <p>Unity · C# 게임 클라이언트로 회사에서 UI 시스템, 코어 로직, 개발 툴을 만들어 왔습니다. 최근 경력이 위에 옵니다.</p>
     </div>
+    <!-- 회사 추가: <li class="job"> 하나를 복사해 맨 위에 넣고 data-from="YYYY-MM"(퇴사했으면 data-to도)만 적으면 회사별 기간·총 경력·현재 회사가 자동 계산됩니다. -->
     <ol class="career">
-      <li class="job rv">
-        <div class="when"><b>2024.02 – 재직 중</b><span>2년 9개월</span></div>
+      <li class="job rv" data-from="2024-02">
+        <div class="when"><b>2024.02 – 재직 중</b><span data-dur>2년 9개월</span></div>
         <div>
           <h3>사일로</h3>
           <p class="pos">정규직 · 게임 클라이언트 · 사원</p>
@@ -376,8 +377,8 @@ section{padding-block:112px}
           </ul>
         </div>
       </li>
-      <li class="job rv">
-        <div class="when"><b>2021.08 – 2022.12</b><span>1년 5개월</span></div>
+      <li class="job rv" data-from="2021-08" data-to="2022-12">
+        <div class="when"><b>2021.08 – 2022.12</b><span data-dur>1년 5개월</span></div>
         <div>
           <h3>제이커브이엔티</h3>
           <p class="pos">정규직</p>
@@ -394,7 +395,7 @@ section{padding-block:112px}
       <div class="about">
         <p class="rv">UI 시스템 구조를 잡는 일과, 팀의 생산성을 올리는 개발 툴을 만드는 일에 강합니다. 「스냅픽셀」에서는 19개 팝업이 기획 의도대로 쌓이도록 Layer·SortOrder 구조를 설계했고, GUID 참조를 모두 찾아 주는 GUIDtracker를 만들었습니다. 스도쿠 프로토타입에서는 JSON 문제 데이터를 바이너리 파일로 바꿔 1만 문제를 다룰 수 있게 했습니다. 2020년 Android 교육용 앱 출시 이후 20개가 넘는 게임 프로젝트를 진행했고, 지금은 AI 에이전트가 정확하게 일하도록 문서와 검증 방식을 설계하며 개발합니다.</p>
         <div class="stats rv">
-          <div><b>4년 2개월</b><span>게임 클라이언트 경력</span></div>
+          <div><b><span data-career-total>4년 2개월</span></b><span>게임 클라이언트 경력</span></div>
           <div><b data-count="10" data-suffix="만+">10만+</b><span>버블헌터 오리진 다운로드</span></div>
           <div><b data-count="20" data-suffix="+">20+</b><span>게임 프로젝트</span></div>
         </div>
@@ -540,7 +541,7 @@ section{padding-block:112px}
   </div>
 </section>
 
-<!-- ===================== ✏️ 프로젝트 (대표 5개. 카드마다 기간·팀·역할을 같은 형식으로) ===================== -->
+<!-- ===================== ✏️ 프로젝트 (대표 프로젝트. 카드마다 기간·팀·역할을 같은 형식으로, 추가·삭제 시 num 번호 다시 매김) ===================== -->
 <section id="projects" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="container">
     <div class="sec-head rv">
@@ -549,7 +550,7 @@ section{padding-block:112px}
       <p>회사에서 출시·개발한 프로젝트와, AI 에이전트와 함께 만든 최근 프로젝트입니다. 나머지 작업은 아래 "그 밖의 작업"에 모았습니다.</p>
     </div>
     <div class="featured">
-      <div class="era rv"><span class="eyebrow">Company</span><h3>회사 프로젝트</h3><p>사일로와 제이커브이엔티에서 개발한 게임입니다.</p></div>
+      <div class="era rv"><span class="eyebrow">Company</span><h3>회사 프로젝트</h3><p>회사에서 출시·개발한 게임입니다. 최근 프로젝트가 위에 옵니다.</p></div>
 
       <article class="feat case rv">
         <div class="txt">
@@ -574,7 +575,7 @@ section{padding-block:112px}
           <h3>토스 게임 「돼박합체」 · 「랜드마크 블록격파」</h3>
           <p class="meta"><span><b>기간</b>2025.09 – 2025.12</span><span><b>소속</b>사일로</span><span><b>역할</b>클라이언트 개발자 (돼박합체) · UI/UX (랜드마크 블록격파)</span></p>
           <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">MVC</span></div>
-          <p class="sub">토스 게임 두 편입니다.</p>
+          <p class="sub">토스 게임 프로젝트입니다.</p>
           <ul>
             <li>「돼박합체」 코어 로직을 Model · View · Controller 구조로 설계해 재사용성과 유지보수성을 높임</li>
             <li>「랜드마크 블록격파」(2025.12) 이벤트를 포함한 전체 UI 적용, UI 애니메이션으로 사용자 인터랙션 구현, 보상 획득 로직 구현</li>
@@ -884,6 +885,16 @@ section{padding-block:112px}
     document.querySelectorAll('[data-count]').forEach(el=>io2.observe(el));
   }
   /* copy email */
+  const ym=v=>{const [y,m]=v.split('-').map(Number); return y*12+m-1;};
+  const now=new Date(), nowYm=now.getFullYear()*12+now.getMonth();
+  const fmt=n=>[n>=12&&Math.floor(n/12)+'년', n%12&&n%12+'개월'].filter(Boolean).join(' ');
+  let total=0;
+  document.querySelectorAll('.job[data-from]').forEach(j=>{
+    const n=(j.dataset.to?ym(j.dataset.to):nowYm)-ym(j.dataset.from)+1; total+=n;
+    const d=j.querySelector('[data-dur]'); if(d) d.textContent=fmt(n);
+    if(!j.dataset.to) document.querySelectorAll('[data-career-now]').forEach(e=>e.textContent=j.querySelector('h3').textContent);
+  });
+  if(total) document.querySelectorAll('[data-career-total]').forEach(e=>e.textContent=fmt(total));
   const cb=document.getElementById('copyMail');
   if(cb) cb.addEventListener('click',()=>{ const t=document.getElementById('mail').textContent; const done=()=>{cb.textContent='복사됨'; setTimeout(()=>cb.textContent='이메일 복사',1600);};
     try{ navigator.clipboard.writeText(t).then(done,()=>{ const r=document.createRange(); r.selectNodeContents(document.getElementById('mail')); const sel=getSelection(); sel.removeAllRanges(); sel.addRange(r); cb.textContent='선택됨 · Ctrl+C'; }); }catch(e){} });
