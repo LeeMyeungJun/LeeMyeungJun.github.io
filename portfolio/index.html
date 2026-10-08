@@ -160,6 +160,46 @@ section{padding-block:112px}
 .chip.pub:hover,.era a:hover{text-decoration:underline}
 .ai-note.pt{background:var(--surface);border-color:var(--line)}
 .ai-note.pt b{color:var(--blue)}
+.feat.case{grid-template-columns:minmax(0,1fr)}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;font-size:13.5px;color:#CFD5E6}
+.meta span b{font-family:var(--f-pixel);font-weight:400;font-size:10.5px;letter-spacing:.08em;color:var(--blue);margin-right:6px}
+.career{list-style:none;margin:0 0 64px;padding:0;display:flex;flex-direction:column;gap:14px}
+.job{display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px}
+.job .when b{display:block;font-family:var(--f-mono);font-size:14px;font-weight:500;color:var(--amber)}
+.job .when span{font-size:13px;color:var(--muted)}
+.job h3{font-size:24px;font-weight:900}
+.job .pos{color:var(--muted);font-size:14px;margin-top:2px}
+.job ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.job li{position:relative;padding-left:16px;font-size:15px;color:#CFD5E6}
+.job li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--amber)}
+.edu{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:10px}
+.edu ul{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:6px 24px}
+.edu li{font-size:14px;color:var(--muted)}
+.edu li b{color:var(--fg);font-weight:600;margin-right:6px}
+.oneline{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.oneline li{padding:10px 0;border-bottom:1px solid var(--line);font-size:14.5px;color:var(--muted)}
+.oneline li b{color:var(--fg);font-weight:600;margin-right:8px}
+.oneline li code{font-family:var(--f-mono);font-size:12px;margin-left:8px}
+.cases{display:flex;flex-direction:column;gap:32px}
+.case-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.case-card h3{font-size:clamp(24px,3.2vw,34px);font-weight:900;letter-spacing:-.02em}
+.case-card .num{font-family:var(--f-pixel);font-size:12px;color:var(--muted)}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.kpi{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.kpi .v{font-family:var(--f-mono);font-weight:500;font-size:clamp(24px,3.4vw,36px);line-height:1.15;display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-variant-numeric:tabular-nums}
+.kpi .v s{color:var(--muted);text-decoration:none}
+.kpi .v i{font-style:normal;color:var(--muted);font-size:.6em}
+.kpi .v b{color:var(--green);font-weight:500}
+.kpi .v small{font-size:.45em;color:var(--muted)}
+.kpi span{font-size:13px;color:var(--muted)}
+.steps{display:grid;grid-template-columns:110px minmax(0,1fr);gap:14px 20px;margin:0}
+.steps dt{font-family:var(--f-pixel);font-size:11px;letter-spacing:.06em;color:var(--amber);padding-top:5px}
+.steps dd{margin:0;font-size:15px;color:#CFD5E6;min-width:0;display:flex;flex-direction:column;gap:10px}
+.steps dd ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px}
+.steps dd li{position:relative;padding-left:16px}
+.steps dd li::before{content:"";position:absolute;left:0;top:.62em;width:6px;height:6px;background:var(--blue)}
+.steps dd li.x::before{background:var(--pink)}
+.steps dd li.ok::before{background:var(--green)}
 
 /* profile */
 .profile{display:grid;grid-template-columns:280px minmax(0,1fr);gap:48px;align-items:start}
@@ -257,6 +297,9 @@ section{padding-block:112px}
   .commit{padding-left:40px;padding-bottom:56px}
   .nav ul{display:none}
   .featured{gap:72px}
+  .job,.steps{grid-template-columns:minmax(0,1fr);gap:6px}
+  .job{padding:18px}
+  .case-card{padding:20px 18px}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -271,10 +314,11 @@ section{padding-block:112px}
   <div class="container nav-in">
     <a class="logo" href="#top"><i></i>LEE MYEONGJUN</a>
     <ul>
-      <li><a class="lnk" href="#profile">프로필</a></li>
+      <li><a class="lnk" href="#profile">경력</a></li>
       <li><a class="lnk" href="#journey">AI 여정</a></li>
       <li><a class="lnk" href="#projects">프로젝트</a></li>
-      <li><a class="lnk" href="#unity">Unity · 툴</a></li>
+      <li><a class="lnk" href="#cases">케이스 스터디</a></li>
+      <li><a class="lnk" href="#unity">그 밖의 작업</a></li>
       <li><a class="lnk" href="#principles">원칙</a></li>
     </ul>
   </div>
@@ -288,17 +332,18 @@ section{padding-block:112px}
     <span class="eyebrow">Game Client Developer · Unity / C# · Godot</span>
     <h1 aria-label="이명준"><span>이</span><span>명</span><span>준</span></h1>
     <p class="typed" aria-live="off"><span class="t" id="typed">AI와 함께 게임을 만드는 클라이언트 개발자</span><span class="caret"></span></p>
-    <p class="lead">2020년 Android 교육용 앱 출시를 시작으로 Unity와 C#으로 20개가 넘는 게임을 만들었고, <b>「버블헌터 오리진」</b>은 Google Play 10만 다운로드를 넘었습니다. 2023년 회사에서 <b>「스냅픽셀」</b>을 만들며 AI에게 변수명과 알고리즘을 묻기 시작했고, 지금은 구현을 AI에게 맡기고 저는 AI가 정확하게 일하도록 <b>문서 구조와 검증 방식</b>을 설계합니다. 그래서 현재는 AI가 읽고 쓰기 쉬운 <b>Godot</b>으로 회사 작업과 개인 프로젝트를 하고 있습니다.</p>
+    <p class="lead">게임 클라이언트 경력 <b>4년 2개월</b>. 제이커브이엔티에서 3매치 퍼즐 게임의 레벨툴과 UI/UX를 개발하고 <b>「버블헌터 오리진」</b>(Google Play 10만+)과 「왕관을 지켜라」를 출시했습니다. 사일로에서는 <b>「스냅픽셀」</b>의 핵심 UI 시스템과 토스 게임의 코어 로직을 만들었고, 지금은 Godot 4 모바일 게임의 <b>아웃게임</b>을 맡고 있습니다. 구현은 AI 에이전트에게 맡기고, 저는 AI가 정확하게 일하도록 <b>문서 구조와 검증 방식</b>을 설계합니다.</p>
     <div class="cta">
-      <a class="btn primary" href="#projects">프로젝트 보기 ↓</a>
-      <a class="btn ghost" href="#journey">AI 여정</a>
+      <a class="btn primary" href="#profile">경력 보기 ↓</a>
+      <a class="btn ghost" href="#projects">프로젝트</a>
+      <a class="btn ghost" href="#cases">케이스 스터디</a>
       <a class="btn ghost" href="https://github.com/LeeMyeungJun" target="_blank" rel="noopener">GitHub ↗</a>
     </div>
     <dl class="facts">
+      <div><dt>CAREER</dt><dd>4년 2개월 · 사일로 재직 중</dd></div>
       <div><dt>MAIN</dt><dd>Unity · C#</dd></div>
       <div><dt>NOW</dt><dd>Godot 4.7 (C# · GDScript)</dd></div>
-      <div><dt>TOOLS</dt><dd>.NET WPF · WinForms · C++ GDExtension</dd></div>
-      <div><dt>AI</dt><dd>Claude Code · Codex · Gemini CLI · MCP</dd></div>
+            <div><dt>AI</dt><dd>Claude Code · Codex · Gemini CLI · MCP</dd></div>
     </dl>
   </div>
 </header>
@@ -310,28 +355,49 @@ section{padding-block:112px}
   </div>
 </div>
 
-<!-- ===================== ✏️ 프로필 (자기소개, 숫자 카드, 학력·경력, 강점) ===================== -->
+<!-- ===================== ✏️ 경력 · 프로필 (경력 타임라인, 자기소개, 강점, 교육·기타) ===================== -->
 <section id="profile">
   <div class="container">
     <div class="sec-head rv">
-      <span class="eyebrow">Profile</span>
-      <h2>생각하는 개발자</h2>
+      <span class="eyebrow">Career</span>
+      <h2>경력 4년 2개월</h2>
+      <p>Unity · C# 게임 클라이언트로 두 회사에서 게임의 UI 시스템, 코어 로직, 개발 툴을 만들었습니다.</p>
     </div>
+    <ol class="career">
+      <li class="job rv">
+        <div class="when"><b>2024.02 – 재직 중</b><span>2년 9개월</span></div>
+        <div>
+          <h3>사일로</h3>
+          <p class="pos">정규직 · 게임 클라이언트 · 사원</p>
+          <ul>
+            <li>「스냅픽셀」(Unity, 2024.02 – 2025.09) 메인메뉴·인게임·상점·스킬 등 핵심 UI 개발, 팝업 19개를 기획 의도대로 쌓는 Layer·SortOrder 구조 설계, Atlas 적용으로 UI 최적화</li>
+            <li>토스 게임 「돼박합체」 코어 로직을 MVC 구조로 설계, 「랜드마크 블록격파」 UI·보상 획득 구현, 3매치 레벨툴·스도쿠 프로토타입 개발</li>
+            <li>Godot 4 모바일 게임 아웃게임 담당: 다이어리·스크랩북 기능, 서버 통신, 로비 렌더링 최적화</li>
+          </ul>
+        </div>
+      </li>
+      <li class="job rv">
+        <div class="when"><b>2021.08 – 2022.12</b><span>1년 5개월</span></div>
+        <div>
+          <h3>제이커브이엔티</h3>
+          <p class="pos">정규직</p>
+          <ul>
+            <li>3매치 퍼즐 게임의 레벨툴과 UI/UX 개발</li>
+            <li>「버블헌터 오리진」 Google Play 10만+ 다운로드, 「왕관을 지켜라」 Google Play 출시</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+
     <div class="profile">
       <div class="avatar rv"><img src="img/profile.webp" alt="이명준 프로필 사진" width="360" height="639" loading="lazy"><span class="tag">PLAYER 1</span></div>
       <div class="about">
-        <p class="rv">끊임없이 성찰하며 성장하는 클라이언트 개발자 이명준입니다. 2020년 Android Studio로 교육용 앱을 출시했고, 많은 분들이 좋아해 주시는 걸 보며 제가 좋아하는 게임을 많은 사람에게 보여 주는 게임 클라이언트 개발자가 되기로 했습니다. 그 뒤로 20개가 넘는 게임 프로젝트를 진행했고, 국내 게임잼에 참가하며 알고리즘 스터디도 꾸준히 하고 있습니다.</p>
+        <p class="rv">UI 시스템 구조를 잡는 일과, 팀의 생산성을 올리는 개발 툴을 만드는 일에 강합니다. 「스냅픽셀」에서는 19개 팝업이 기획 의도대로 쌓이도록 Layer·SortOrder 구조를 설계했고, GUID 참조를 모두 찾아 주는 GUIDtracker를 만들었습니다. 스도쿠 프로토타입에서는 JSON 문제 데이터를 바이너리 파일로 바꿔 1만 문제를 다룰 수 있게 했습니다. 2020년 Android 교육용 앱 출시 이후 20개가 넘는 게임 프로젝트를 진행했고, 지금은 AI 에이전트가 정확하게 일하도록 문서와 검증 방식을 설계하며 개발합니다.</p>
         <div class="stats rv">
-          <div><b data-count="20" data-suffix="+">20+</b><span>게임 프로젝트</span></div>
+          <div><b>4년 2개월</b><span>게임 클라이언트 경력</span></div>
           <div><b data-count="10" data-suffix="만+">10만+</b><span>버블헌터 오리진 다운로드</span></div>
-          <div><b>GOLD</b><span>백준 알고리즘 티어</span></div>
+          <div><b data-count="20" data-suffix="+">20+</b><span>게임 프로젝트</span></div>
         </div>
-        <ul class="hist rv">
-          <li><span class="k">EDUCATION</span><div><b>인하대학교 · 문화컨텐츠프로그램개발</b><p>C++, 게임 수학, 알고리즘, 기획</p></div></li>
-          <li><span class="k">EDUCATION</span><div><b>메디치교육센터 · VR 콘텐츠 개발</b><p>C# 기본과 활용, VR/AR, Photon 네트워크, ML</p></div></li>
-          <li><span class="k">EXPERIENCE</span><div><b>회사 · 「스냅픽셀」 개발</b><p>AI를 개발에 쓰기 시작한 프로젝트</p></div></li>
-          <li><span class="k">EXPERIENCE</span><div><b>Android 출시 다수 · 팀 프로젝트 다수</b><p>유지보수와 성능 개선, SVN · Git 협업, 게임 AI(A*, FSM, 비헤이비어 트리, EQS)</p></div></li>
-        </ul>
       </div>
     </div>
 
@@ -339,7 +405,7 @@ section{padding-block:112px}
       <article class="st rv">
         <span class="eyebrow">Strength 01</span>
         <h3>체계적인 습관</h3>
-        <p>커밋 메시지 규칙을 지키며 협업 효율을 높이는 습관을 들였습니다. 팀의 코드 컨벤션에 맞춰 코드와 커밋 메시지 스타일을 맞추는 것부터 시작합니다.</p>
+        <p>팀의 코드 컨벤션과 커밋 메시지 규칙에 맞추는 것부터 시작합니다. 규칙을 지킨 커밋은 리뷰와 협업 속도를 높입니다.</p>
         <pre class="log"><span>feat</span>: SettingsManager
 <span>feat</span>: LoadingScene
 <span>refactor</span>: Manager, SoundSystem, BaseScene, Utils
@@ -348,13 +414,22 @@ section{padding-block:112px}
       </article>
       <article class="st rv">
         <span class="eyebrow">Strength 02</span>
-        <h3>팀원과 함께 성장하기</h3>
-        <p>팀원의 일도 항상 함께 고민했고, 그 결과 팀원 모두가 자신 있게 Unity를 다루는 사람으로 성장했습니다.</p>
-        <div class="quotes">
-          <blockquote><p>태도는 부드럽지만 조언은 냉철하게 알려 줘서 고마워. 본인 할 일도 있을 텐데 팀원들 먼저 챙기는 모습을 보고 감동과 동시에 멋져 보였어.</p><cite>팀원 승우</cite></blockquote>
-          <blockquote><p>유니티 모르는 거 질문하면 바로바로 알려 줘서 고마워. 덕분에 유니티 쓰는 방식을 많이 배웠고, 팀이란 이런 거지 하는 마음을 가질 수 있었어.</p><cite>팀원 휘준</cite></blockquote>
-        </div>
+        <h3>팀과 함께 성장하기</h3>
+        <p>팀원의 일도 함께 고민합니다. 팀 프로젝트에서 Unity 질문에 바로 답하고 함께 문제를 풀면서, 팀원 모두가 Unity를 자신 있게 다루게 되었습니다.</p>
+        <p>안정성도 같이 챙깁니다. 「스냅픽셀」에서 데이터 로드 실패와 Null 참조 상황의 UI 처리를 정리했고, UniTask async/await로 데이터 로드 후 메인메뉴를 여는 비동기 흐름을 구현했습니다.</p>
       </article>
+    </div>
+
+    <div class="edu rv">
+      <span class="eyebrow">Education · Etc</span>
+      <ul>
+        <li><b>수원과학대학교</b>컴퓨터정보과 전문학사 · 2016.03 – 2020.03</li>
+        <li><b>인하대학교</b>문화컨텐츠프로그램개발 · C++, 게임 수학, 알고리즘, 기획</li>
+        <li><b>메디치교육센터</b>VR 콘텐츠 개발 · C#, VR/AR, Photon 네트워크, ML</li>
+        <li><b>백준 GOLD</b>알고리즘 스터디 · 국내 게임잼 참가</li>
+        <li><b>팀 프로젝트</b>SVN · Git 협업, 게임 AI(A*, FSM, 비헤이비어 트리, EQS)</li>
+        <li><b>언어</b>한국어, 일본어(일상 회화)</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -372,7 +447,7 @@ section{padding-block:112px}
     <div class="journey">
       <aside class="hud" aria-live="polite">
         <div class="lv" id="hudLv">LV.1</div>
-        <div class="yr" id="hudYr">2023</div>
+        <div class="yr" id="hudYr">2024</div>
         <div class="ttl" id="hudTtl">묻고, 내가 적용한다</div>
         <div class="gauge" id="gauge"><i></i><i></i><i></i><i></i><i></i><i class="ghost"></i></div>
         <div class="cap">AI에게 맡긴 범위</div>
@@ -380,10 +455,10 @@ section{padding-block:112px}
       </aside>
 
       <ol class="graph" id="graph">
-        <li class="commit" data-lv="1" data-yr="2023" data-scope="이름 짓기, 짧은 함수, 알고리즘 아이디어">
-          <div class="when"><span class="date">2023</span><span class="where">회사 · 스냅픽셀</span></div>
+        <li class="commit" data-lv="1" data-yr="2024" data-scope="이름 짓기, 짧은 함수, 알고리즘 아이디어">
+          <div class="when"><span class="date">2024</span><span class="where">사일로 · 스냅픽셀</span></div>
           <h3>묻고, 내가 적용한다</h3>
-          <p class="how">회사에서 「스냅픽셀」을 개발하던 시기입니다. AI는 검색 대신 질문하는 상대였습니다. 변수명과 함수명을 정할 때, 짧은 함수를 짤 때, 알고리즘이 막혔을 때 해결 방향을 물었고, 받은 답이 맞는지는 제가 판단해서 코드에 옮겼습니다.</p>
+          <p class="how">사일로에서 「스냅픽셀」(Unity)을 개발하던 시기입니다. AI는 검색 대신 질문하는 상대였습니다. 변수명과 함수명을 정할 때, 짧은 함수를 짤 때, 알고리즘이 막혔을 때 해결 방향을 물었고, 받은 답이 맞는지는 제가 판단해서 코드에 옮겼습니다.</p>
           <dl class="roles">
             <div><dt>AI가 한 일</dt><dd>변수·함수 이름 제안, 짧은 함수, 알고리즘 접근법</dd></div>
             <div><dt>내가 한 일</dt><dd>설계, 구현, 적용 여부 판단, 디버깅</dd></div>
@@ -465,26 +540,58 @@ section{padding-block:112px}
   </div>
 </section>
 
-<!-- ===================== ✏️ 프로젝트 (출시작·팀 프로젝트, 최근 프로젝트) ===================== -->
+<!-- ===================== ✏️ 프로젝트 (대표 5개. 카드마다 기간·팀·역할을 같은 형식으로) ===================== -->
 <section id="projects" style="background:var(--bg2);border-block:1px solid var(--line)">
   <div class="container">
     <div class="sec-head rv">
       <span class="eyebrow">Projects</span>
-      <h2>프로젝트</h2>
-      <p>출시작과 팀 프로젝트, 그리고 AI와 함께 만든 최근 프로젝트입니다. 최근 프로젝트의 커버는 핵심 시스템을 단순화해 그린 움직이는 일러스트입니다.</p>
+      <h2>대표 프로젝트</h2>
+      <p>회사에서 출시·개발한 프로젝트와, AI 에이전트와 함께 만든 최근 프로젝트입니다. 나머지 작업은 아래 "그 밖의 작업"에 모았습니다.</p>
     </div>
     <div class="featured">
-      <div class="era rv"><span class="eyebrow">Shipped &amp; Team Projects</span><h3>출시작과 팀 프로젝트</h3><p>Unity와 Unreal로 직접 설계하고 구현한 프로젝트입니다. 일부 코드는 <a href="https://github.com/LeeMyeungJun/Portfolio" target="_blank" rel="noopener">Portfolio 저장소 ↗</a>에 공개되어 있습니다.</p></div>
+      <div class="era rv"><span class="eyebrow">Company</span><h3>회사 프로젝트</h3><p>사일로와 제이커브이엔티에서 개발한 게임입니다.</p></div>
+
+      <article class="feat case rv">
+        <div class="txt">
+          <span class="num">01 / 05</span>
+          <h3>스냅픽셀</h3>
+          <p class="meta"><span><b>기간</b>2024.02 – 2025.09</span><span><b>소속</b>사일로</span><span><b>역할</b>UI/UX 개발</span></p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">UniTask</span><span class="chip">Sprite Atlas</span></div>
+          <p class="sub">메인메뉴, 인게임, 상점, 스킬 등 핵심 UI 시스템을 개발했고, UI/UX 개발과 개선이 가장 큰 비중이었습니다.</p>
+          <ul>
+            <li>팝업 시스템: 팝업 19개의 Layer·SortOrder를 개별 정리해 기획 의도대로 순서대로 쌓이는 구조 설계 (예: ToastMessage는 Error 팝업보다 항상 위)</li>
+            <li>커스텀 개발 툴로 생산성 향상: GUID가 참조된 곳을 모두 찾는 GUIDtracker</li>
+            <li>UniTask async/await 비동기 흐름: 데이터 로드가 끝난 뒤 메인메뉴 표시</li>
+            <li>Atlas 리소스 적용 등으로 UI 컴포넌트 성능 최적화, 데이터 로드 실패·Null 참조 상황의 UI 처리</li>
+          </ul>
+          <p class="ai-note pt"><b>POINT</b>AI에게 변수명과 알고리즘을 묻기 시작한 프로젝트입니다.</p>
+        </div>
+      </article>
+
+      <article class="feat case rv">
+        <div class="txt">
+          <span class="num">02 / 05</span>
+          <h3>토스 게임 「돼박합체」 · 「랜드마크 블록격파」</h3>
+          <p class="meta"><span><b>기간</b>2025.09 – 2025.12</span><span><b>소속</b>사일로</span><span><b>역할</b>클라이언트 개발자 (돼박합체) · UI/UX (랜드마크 블록격파)</span></p>
+          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">MVC</span></div>
+          <p class="sub">토스 게임 두 편입니다.</p>
+          <ul>
+            <li>「돼박합체」 코어 로직을 Model · View · Controller 구조로 설계해 재사용성과 유지보수성을 높임</li>
+            <li>「랜드마크 블록격파」(2025.12) 이벤트를 포함한 전체 UI 적용, UI 애니메이션으로 사용자 인터랙션 구현, 보상 획득 로직 구현</li>
+          </ul>
+        </div>
+      </article>
 
       <article class="feat rv">
         <div class="cover-wrap"><div class="cover phones tilt">
           <img src="img/bubble-2.webp" alt="버블헌터 오리진 스크린샷" loading="lazy"><img src="img/bubble-1.webp" alt="버블헌터 오리진 타이틀" loading="lazy"><img src="img/bubble-4.webp" alt="버블헌터 오리진 플레이 화면" loading="lazy">
           <span class="badge">GOOGLE PLAY · 10만+</span></div></div>
         <div class="txt">
-          <span class="num">01 / 09</span>
+          <span class="num">03 / 05</span>
           <h3>버블헌터 오리진</h3>
+          <p class="meta"><span><b>기간</b>2021.08 – 2022.12 재직 중</span><span><b>소속</b>제이커브이엔티</span><span><b>팀</b>3인 (프로그래머 2 · 기획 1)</span><span><b>역할</b>UI·콘텐츠 개발, 요구 분석과 구현, 커스텀 툴</span></p>
           <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Android</span><span class="chip">Firebase</span><span class="chip">AdMob</span></div>
-          <p class="sub">3매치 슈팅 퍼즐 게임. 3인 팀(프로그래머 2 · 기획 1)에서 UI와 콘텐츠 개발, 요구 분석과 구현, 커스텀 툴 개발을 맡았습니다.</p>
+          <p class="sub">3매치 슈팅 퍼즐 게임. Google Play 다운로드 10만 이상.</p>
           <ul>
             <li>팩토리 패턴으로 버블 생성</li>
             <li>AdMob 결제 시스템, 튜토리얼 시스템</li>
@@ -492,7 +599,7 @@ section{padding-block:112px}
           </ul>
           <div class="notes">
             <div><span>어려웠던 점</span><p>서로 상호작용하는 버블이 많아 하나를 고치면 다른 버그가 생겼습니다. 차근차근 디버깅하며 해결했습니다. 처음 써 보는 Firebase는 SDK를 설치하고 공부하며 구현까지 마쳤습니다.</p></div>
-            <div><span>성과</span><p>Google Play 다운로드 10만 이상. Firebase 활용, 프로파일러를 이용한 최적화 능력을 키웠습니다.</p></div>
+            <div><span>성과</span><p>Google Play 다운로드 10만 이상. 프로파일러를 이용한 최적화와 Firebase 활용 경험.</p></div>
           </div>
         </div>
       </article>
@@ -502,10 +609,11 @@ section{padding-block:112px}
           <img src="img/crown-3.webp" alt="왕관을 지켜라 보스전" loading="lazy"><img src="img/crown-1.webp" alt="왕관을 지켜라 타이틀" loading="lazy"><img src="img/crown-4.webp" alt="왕관을 지켜라 스킬" loading="lazy">
           <span class="badge">GOOGLE PLAY</span></div></div>
         <div class="txt">
-          <span class="num">02 / 09</span>
+          <span class="num">04 / 05</span>
           <h3>왕관을 지켜라</h3>
+          <p class="meta"><span><b>기간</b>2021.08 – 2022.12 재직 중</span><span><b>소속</b>제이커브이엔티</span><span><b>팀</b>3인 (프로그래머 1 · 기획 1 · 그래픽 1)</span><span><b>역할</b>유일한 프로그래머: 최적화, 번역 시스템, 밸런스 툴</span></p>
           <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">Android</span><span class="chip">GPU Instancing</span></div>
-          <p class="sub">핵 앤 슬래시. 3인 팀(프로그래머 1 · 기획 1 · 그래픽 1)의 유일한 프로그래머로 최적화, 번역 시스템, 밸런스 툴 개발을 맡았습니다.</p>
+          <p class="sub">핵 앤 슬래시. Google Play 출시.</p>
           <ul>
             <li>오브젝트 풀링으로 몬스터 생성, 코루틴으로 다양한 연출</li>
             <li>구글 시트 데이터를 JSON으로 변환하는 밸런스 파이프라인</li>
@@ -513,78 +621,19 @@ section{padding-block:112px}
           </ul>
           <div class="notes">
             <div><span>어려웠던 점</span><p>풀링을 써도 수백 마리의 스킨드 메시 때문에 성능이 떨어졌습니다. 스킨드 메시를 메시로 바꿔 GPU 인스턴싱해 안정적인 성능을 냈습니다. 화면 비율마다 UI가 어긋나는 문제는 캔버스 스케일러와 피벗으로 맞췄습니다.</p></div>
-            <div><span>성과</span><p>Google Play 출시. 다양한 화면 비율 대응과 프로파일러를 이용한 최적화 능력을 키웠습니다.</p></div>
+            <div><span>성과</span><p>Google Play 출시. 다양한 화면 비율 대응과 프로파일러를 이용한 최적화 경험.</p></div>
           </div>
         </div>
       </article>
 
-      <article class="feat rv">
-        <div class="cover-wrap"><div class="cover slides tilt">
-          <img src="img/themonster-2.webp" alt="TheMonster EQS 지점 시각화" loading="lazy"><img src="img/themonster-1.webp" alt="TheMonster 인게임" loading="lazy">
-          <span class="badge">TPS · ENEMY AI</span></div></div>
-        <div class="txt">
-          <span class="num">03 / 09</span>
-          <h3>TheMonster</h3>
-          <div class="chips"><span class="chip">Unity</span><span class="chip">C#</span><span class="chip">NavMesh</span><span class="chip">Cinemachine</span><a class="chip pub" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/TheMonster_TeamProject" target="_blank" rel="noopener">공개 코드 ↗</a></div>
-          <p class="sub">3인칭 TPS. 프로그래머 3인 팀에서 몬스터, 최적화, 일정과 프로젝트 관리를 맡았습니다.</p>
-          <ul>
-            <li>직접 만든 비헤이비어 트리(Selector · Sequence · Action)로 근접 공격 → 추적 → 원위치 복귀 우선순위 구성, 보스는 원거리 공격 패턴으로 확장</li>
-            <li>EQS 직접 구현: 플레이어 주변 다각형 지점마다 NavMesh 경로 가능 여부와 거리로 점수를 매기고 높은 점수 지점으로 이동</li>
-            <li>시네머신 카메라 연출</li>
-          </ul>
-          <div class="notes">
-            <div><span>어려웠던 점</span><p>Unreal이 기본 제공하는 비헤이비어 트리와 EQS를 Unity에서 재현하려 했지만 처음엔 자연스럽지 않았습니다. 시간을 들여 원하는 느낌까지 끌어올렸습니다. 볼륨을 크게 잡아 짧은 기간에 퀄리티를 내지 못한 경험도 했습니다.</p></div>
-            <div><span>배운 점</span><p>게임 AI(비헤이비어 트리, EQS) 구현, 그리고 프로젝트에서 일정이 얼마나 중요한지.</p></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="feat rv">
-        <div class="cover-wrap"><div class="cover slides tilt">
-          <img src="img/thefuture-3.webp" alt="TheFuture 페인트 건" loading="lazy"><img src="img/thefuture-2.webp" alt="TheFuture 인게임" loading="lazy"><img src="img/thefuture-1.webp" alt="TheFuture 장면" loading="lazy"><img src="img/thefuture-4.webp" alt="TheFuture 브러시" loading="lazy">
-          <span class="badge">VR · FPS PUZZLE</span></div></div>
-        <div class="txt">
-          <span class="num">04 / 09</span>
-          <h3>TheFuture</h3>
-          <div class="chips"><span class="chip">Unity</span><span class="chip">XR Interaction Toolkit</span><span class="chip">C#</span><a class="chip pub" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/TheFuture_VRPorejct" target="_blank" rel="noopener">공개 코드 ↗</a></div>
-          <p class="sub">색을 바꿔 쓰는 페인트 건으로 싸우고 퍼즐을 푸는 VR FPS. 3인 팀(프로그래머 2 · 기획 1)에서 몬스터를 제외한 콘텐츠, 최적화, 일정 관리를 맡았습니다.</p>
-          <ul>
-            <li>템플릿 메서드 패턴: Paint 추상 클래스(Begin · Action · End · Init)로 공통 흐름을 두고 색마다 능력만 구현해 중복 코드 최소화</li>
-            <li>빨강 레이캐스트 사격, 초록 물체 잡아 옮기기, 파랑 짚라인 생성</li>
-            <li>베지어 곡선을 라인 렌더러에 적용한 가이드, RayCast 색적, 오브젝트 풀링 몬스터 생성</li>
-          </ul>
-          <div class="notes">
-            <div><span>어려웠던 점</span><p>VR은 멀미 때문에 회전 이동과 빠른 이동을 매우 조심해야 했습니다. 기획자와 의견이 부딪힐 때는 대화로 차이를 좁혀 해결했습니다.</p></div>
-            <div><span>배운 점</span><p>LOD, 오클루전 컬링, 스태틱 라이트맵, 프로파일러, 사운드 퀄리티까지 다양한 최적화. 기기마다 다른 주의점.</p></div>
-          </div>
-        </div>
-      </article>
-
-      <article class="feat rv">
-        <div class="cover-wrap"><div class="cover tilt"><canvas data-cover="unreal"></canvas><span class="badge">ACTION · C++</span></div></div>
-        <div class="txt">
-          <span class="num">05 / 09</span>
-          <h3>UC02 Action</h3>
-          <div class="chips"><span class="chip">Unreal Engine</span><span class="chip">C++</span><a class="chip pub" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/Unreal_Project" target="_blank" rel="noopener">공개 코드 ↗</a></div>
-          <p class="sub">근접·마법 액션과 적 AI를 갖춘 Unreal C++ 액션 프로젝트.</p>
-          <ul>
-            <li>무기별 액션 분리: 장착·공격 클래스를 근접, 투척, 파이어스톰, 워프로 나누고 데이터 에셋으로 조합</li>
-            <li>애님 노티파이로 콤보 입력 구간, 충돌, 장착, 피격·사망 타이밍 제어</li>
-            <li>상태·스탯·몽타주·액션 컴포넌트로 캐릭터 기능 분리</li>
-            <li>비헤이비어 트리 서비스·태스크(순찰, 행동, 속도 변경)와 플레이어 EQS 컨텍스트</li>
-            <li>발 위치 라인 트레이스, 카메라 스플라인, FArchive 세이브, 체력·이름 위젯</li>
-          </ul>
-          <p class="ai-note pt"><b>POINT</b>기능을 컴포넌트로 나누고 타이밍은 애니메이션 노티파이로 제어하는 구조를 익힌 프로젝트입니다.</p>
-        </div>
-      </article>
-
-      <div class="era rv"><span class="eyebrow">Built With AI</span><h3>AI와 함께 만든 최근 프로젝트</h3><p>Godot으로 옮긴 뒤, 문서 구조와 검증 방식을 설계하고 구현은 AI 에이전트에게 맡긴 프로젝트입니다.</p></div>
+      <div class="era rv"><span class="eyebrow">Built With AI</span><h3>AI와 함께 만든 최근 프로젝트</h3><p>문서 구조와 검증 방식을 설계하고, 구현은 AI 에이전트에게 맡긴 프로젝트입니다.</p></div>
 
       <article class="feat rv">
         <div class="cover-wrap"><div class="cover tilt"><canvas data-cover="keycap"></canvas><span class="badge">TOWER DEFENSE</span></div></div>
         <div class="txt">
-          <span class="num">06 / 09</span>
+          <span class="num">05 / 05</span>
           <h3>Keycap Defense</h3>
+          <p class="meta"><span><b>역할</b>기획 문서·작업 구조·검증 설계, 구현은 AI 에이전트</span></p>
           <div class="chips"><span class="chip">Godot 4.7</span><span class="chip">GDScript</span><span class="chip">Android</span><span class="chip">비공개</span></div>
           <p class="sub">키캡을 배치해 몬스터의 길을 막는 세로형 모바일 타워 디펜스. 100 스테이지 × 10 웨이브, 오프라인에서 결정론적으로 동작합니다.</p>
           <ul>
@@ -596,90 +645,128 @@ section{padding-block:112px}
           <p class="ai-note"><b>AI</b>기획서를 시스템별 문서로 쪼개 에이전트가 해당 문서만 읽고 구현하게 했습니다. 일부 기능 커밋은 Claude와 공동 작성으로 기록되어 있습니다.</p>
         </div>
       </article>
+    </div>
+  </div>
+</section>
 
-      
-<article class="feat rv">
-        <div class="cover-wrap"><div class="cover tilt"><canvas data-cover="bones"></canvas><span class="badge">RIG · PHYSICS</span></div></div>
-        <div class="txt">
-          <span class="num">07 / 09</span>
-          <h3>AnimTool25D</h3>
-          <div class="chips"><span class="chip">.NET 9 WPF</span><span class="chip">C++20</span><span class="chip">godot-cpp</span><span class="chip">비공개</span></div>
-          <p class="sub">2D 캐릭터 리깅·애니메이션 저작 툴과, 그 결과를 Godot에서 재생하는 GDExtension 런타임.</p>
-          <ul>
-            <li>본·슬롯·메시·스킨·제약조건·애니메이션 편집, 프로젝트 저장과 버전 마이그레이션</li>
-            <li>물리 제약 시뮬레이터: 움직임으로 관성 오프셋을 만들고 고정 스텝 스프링으로 되돌림</li>
-            <li>아틀라스 패커: 여러 페이지·배율, trim·회전·padding·extrude, 2의 거듭제곱 크기</li>
-            <li>항상 같은 결과가 나오는 런타임 export, 검증기, CLI, Godot 임포터와 에디터 미리보기, Spine 4.1 가져오기·내보내기</li>
-          </ul>
-          <p class="ai-note"><b>AI</b>툴과 런타임을 버전이 있는 파일 포맷으로만 연결하고, AI 저작 가이드에 "툴 재생 확인 → export → Godot 동작 확인" 순서를 고정했습니다.</p>
+<!-- ===================== ✏️ 케이스 스터디 (회사 프로젝트: 프로젝트명·코드·내부 경로 넣지 않음. 형식: 문제 → 원인 → 선택지 → 결정·구현 → 결과) ===================== -->
+<section id="cases">
+  <div class="container">
+    <div class="sec-head rv">
+      <span class="eyebrow">Case Study</span>
+      <h2>모바일 아웃게임 최적화</h2>
+      <p>사일로에서 Godot 4로 개발 중인 모바일 게임의 로비 렌더링 비용을 줄인 기록입니다. 회사 프로젝트라 코드 대신 구조만 적었고, 수치는 모두 커밋에 남긴 측정 기록에서 가져왔습니다. 최적화는 아직 진행 중입니다.</p>
+      <p class="meta"><span><b>목표</b>로비 60 FPS (테스트는 120 FPS로 진행해 발열과 여유를 확보)</span><span><b>최소 사양</b>iPhone XR (iOS 18.7) · Android 11</span><span><b>측정 기기</b>Galaxy S23 Ultra (Adreno 740)</span></p>
+    </div>
+
+    <div class="cases">
+      <article class="case-card rv">
+        <span class="num">CASE 01 · 2026.10</span>
+        <h3>다시 그리지 않아도 되는 프레임 찾기</h3>
+        <div class="kpis">
+          <div class="kpi"><div class="v"><s>8.30</s><i>→</i><b>7.77</b><small>ms</small></div><span>렌더 GPU · 셰이더 조기 종료 (2회 중 1회차)</span></div>
+          <div class="kpi"><div class="v"><s>91</s><i>→</i><b>97</b><small>FPS</small></div><span>제출 FPS · 120 요청, 2316×1080</span></div>
+          <div class="kpi"><div class="v"><s>96</s><i>→</i><b>73</b><small>draw</small></div><span>다시 합성하는 프레임의 Draw · 재사용 프레임은 18</span></div>
         </div>
+        <dl class="steps">
+          <dt>PROBLEM</dt><dd>30 FPS 배경 영상 위에 굴절·분광 효과가 들어간 유리 질감 UI가 화면 전체에 깔리는 로비에서, 120 FPS 요청 시 120이 나오지 않았습니다.</dd>
+          <dt>CAUSE</dt><dd><ul>
+            <li>영상은 4프레임에 1번만 바뀌는데 유리 UI 전체를 매 프레임 다시 계산</li>
+            <li>불투명한 합성 결과에 가려져 안 보이는 배경 영상 변환 draw, blur가 0일 때 아무것도 바꾸지 않는 전체 화면 blur 패스와 화면 캡처가 매 프레임 실행</li>
+            <li>120Hz를 요청해도 기기 설정에 따라 60Hz로 남는 경우가 있어, 요청값만으로는 결과를 알 수 없음</li>
+          </ul></dd>
+          <dt>OPTIONS</dt><dd><ul>
+            <li class="ok">합성 결과를 버퍼에 두고 바뀔 때만 다시 그리기 → 채택</li>
+            <li class="ok">호환되는 draw 묶기 → 채택. GPU 이득은 확인되지 않아 CPU 제출 비용 감소로만 기록</li>
+            <li class="x">해상도·blur·샘플 수·정밀도 낮추기 → 품질이 떨어져 쓰지 않음</li>
+            <li class="x">겹치지 않는 그림 순서 바꾸기, 라벨 Z 정렬 → 측정해 보니 비용 이득이 유지되지 않아 폐기</li>
+          </ul></dd>
+          <dt>BUILD</dt><dd><ul>
+            <li>먼저 계측: 화면 안 성능 HUD(1초 FPS, 최악 프레임 간격, 렌더 CPU·GPU, Draw), 60 고정 / 120 요청 전환, 10분 지속 테스트. "요청한 값"과 "실제 표시 FPS"를 따로 표시</li>
+            <li>유리 UI 전체를 오프스크린 버퍼 한 장에 합성하고, 영상 새 프레임·터치·설정·화면 크기 변경 때만 다시 그림</li>
+            <li>가려진 영상 draw 생략, blur 0이면 blur 패스와 캡처 생략</li>
+            <li>셰이더: 가장자리가 아닌 픽셀은 실루엣 계산 생략, 투명 픽셀은 굴절 계산 전에 종료. 전후 픽셀이 바이트 단위로 같은지 검사</li>
+          </ul>
+          <dl class="roles">
+            <div><dt>영상 새 프레임 · 입력</dt><dd>배경과 유리 UI를 버퍼에 다시 합성 (Draw 73)</dd></div>
+            <div><dt>변화 없음</dt><dd>버퍼를 그대로 표시 (Draw 18)</dd></div>
+            <div><dt>항상 실시간</dt><dd>음악 웨이브, 등급 FX</dd></div>
+          </dl></dd>
+          <dt>RESULT</dt><dd><ul>
+            <li>셰이더 조기 종료: 같은 APK로 2회 비교(회당 600샘플), 렌더 GPU 8.30 → 7.77ms, 8.48 → 7.87ms, 제출 FPS 91 → 97</li>
+            <li>현재: 120 요청 30초 측정 평균 약 98 FPS, 95%의 프레임이 16.67ms(60 FPS 간격) 안에 표시. 120 유지는 아직 달성하지 못했습니다.</li>
+          </ul></dd>
+        </dl>
       </article>
 
-      
-<article class="feat rv">
-        <div class="cover-wrap"><div class="cover tilt"><canvas data-cover="snack"></canvas><span class="badge">RESTAURANT · 3D</span></div></div>
-        <div class="txt">
-          <span class="num">08 / 09</span>
-          <h3>Snack Please</h3>
-          <div class="chips"><span class="chip">Godot 4.7</span><span class="chip">3D</span><span class="chip">GDScript</span><span class="chip">비공개</span></div>
-          <p class="sub">손님을 받고 음식을 만들어 파는 3D 레스토랑 운영 게임 (가제).</p>
-          <ul>
-            <li>주문 시스템: 메뉴 카탈로그 기반 주문 생성, 최근 조합을 기억해 같은 주문 반복 방지, 콤보 주문 1.1배</li>
-            <li>손님: 시그널로 도착·식사 완료·퇴장을 알리고, 경유지 이동과 주문 말풍선 표시</li>
-            <li>드라이브스루, 직원 고용(청소·운반), 테이블 정리, 첫 플레이 튜토리얼, 액션 FX 미리보기</li>
-          </ul>
-          <p class="ai-note"><b>AI</b>볼트 기반 작업 계약을 처음 실전 적용한 프로젝트입니다. 기능마다 "작업 등록 → 구현 → 상태 기록" 커밋이 짝을 이룹니다.</p>
+      <article class="case-card rv">
+        <span class="num">CASE 02 · 2026.08 – 09</span>
+        <h3>같은 연출을 더 싼 방법으로</h3>
+        <div class="kpis">
+          <div class="kpi"><div class="v"><s>4096×2048</s><i>→</i><b>2048×2048</b></div><span>UI 아틀라스 · 텍스처 메모리 절반</span></div>
+          <div class="kpi"><div class="v"><s>3.47</s><i>→</i><b>1.58</b><small>MB</small></div><span>아틀라스 PNG 크기</span></div>
         </div>
-      </article>
-
-      
-<article class="feat rv">
-        <div class="cover-wrap"><div class="cover tilt"><canvas data-cover="match3"></canvas><span class="badge">PUZZLE RUNTIME</span></div></div>
-        <div class="txt">
-          <span class="num">09 / 09</span>
-          <h3>Match3 Runtime</h3>
-          <div class="chips"><span class="chip">Godot 4.7</span><span class="chip">C# + GDScript</span><span class="chip">비공개</span></div>
-          <p class="sub">C# 베이스 템플릿 위에 올린 매치3 퍼즐 런타임.</p>
-          <ul>
-            <li>턴 처리기: 스왑, 일반 매치, 특수 블록 5종 생성과 조합, 최대 256회 연쇄, 둘 수 있는 수 검사</li>
-            <li>보드 재배치: 힌트 탐색, 매치가 생기지 않는 셔플(최대 256회 시도)</li>
-            <li>규칙은 JSON 데이터로 분리, 보드 상태·셔플·특수 타깃·진행도 저장을 각각 테스트</li>
-          </ul>
-          <p class="ai-note"><b>AI</b>베이스 템플릿의 모듈 계약과 경로별 규칙 위에서 에이전트가 게임 모듈만 추가하도록 구성했습니다.</p>
-        </div>
+        <dl class="steps">
+          <dt>PROBLEM</dt><dd>로비에서 전체 화면 배경 왜곡 셰이더, 카드마다 붙은 광택 셰이더, 홀로그램 셰이더, 마스크 셰이더가 함께 돌고 있었고, UI 아틀라스는 4096×2048까지 커져 있었습니다.</dd>
+          <dt>CAUSE</dt><dd><ul>
+            <li>연출마다 픽셀 단위 셰이더 계산(삼각함수, exp·pow)과 카드별 머티리얼이 붙어 있음</li>
+            <li>스크롤 마스크는 스크롤 이벤트마다 마스크 이미지를 새로 만들어 업로드</li>
+          </ul></dd>
+          <dt>OPTIONS</dt><dd><ul>
+            <li class="x">카드 광택을 셰이더가 들어간 순차 스프라이트 효과로 → 3분 만에 되돌림</li>
+            <li class="x">부드러운 마스크용 외부 모듈 복원 → 같은 날 되돌림</li>
+            <li class="ok">연출은 유지하고 애니메이션·텍스처 조회로 교체 → 채택</li>
+          </ul></dd>
+          <dt>BUILD</dt><dd><ul>
+            <li>배경 흐름: 셰이더 → 이미지 2장의 이동·회전·크로스페이드 (9초 루프, 이음매 없음). 겹쳐 그리는 레이어가 1장 늘어나는 비용은 감수</li>
+            <li>카드 광택: 카드별 셰이더 머티리얼 → 빛 줄기 이미지 애니메이션</li>
+            <li>홀로그램: 픽셀마다 cos 3회 → 그라디언트 텍스처 조회 1회, 기울이지 않으면 동적 광원 계산 생략</li>
+            <li>스크롤 마스크: 한 번만 준비, 갱신은 프레임당 1회, 위치가 같으면 생략. 이후 마스크 셰이더 삭제</li>
+            <li>XP 패스 목록: 셀 12개를 재사용하는 풀로 다시 만들고 전용 아틀라스 삭제</li>
+          </ul></dd>
+          <dt>RESULT</dt><dd>UI 아틀라스 면적과 텍스처 메모리를 절반으로 줄였고, 셰이더 4종을 없애거나 단순화했습니다.</dd>
+        </dl>
       </article>
     </div>
   </div>
 </section>
 
-<!-- ===================== ✏️ Unity · C# 작업과 툴, 그 밖의 작업 ===================== -->
+<!-- ===================== ✏️ 그 밖의 작업 (팀·개인 프로젝트, 툴, 실험작 한 줄 목록) ===================== -->
 <section id="unity">
   <div class="container">
     <div class="sec-head rv">
-      <span class="eyebrow">Unity · C# · Tools</span>
-      <h2>Unity와 C# 작업</h2>
-      <p>게임 코드와, 작업 중 필요해서 직접 만든 데스크톱 툴입니다.</p>
+      <span class="eyebrow">More Work</span>
+      <h2>그 밖의 작업</h2>
+      <p>회사의 작은 프로젝트, 팀 프로젝트, AI와 만든 프로젝트, 그리고 작업 중 필요해서 직접 만든 툴입니다.</p>
     </div>
     <div class="grid">
-      <article class="card rv"><div class="top"><span class="stack">Unity 2022.3 · C#</span><a class="vis" href="https://github.com/LeeMyeungJun/CodeStyle" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>CodeStyle</h3><p>코드 구조를 보여 주기 위한 탄막 피하기 게임.</p><p class="d">Simulator를 밸런스·이벤트·헬퍼 partial로 분리, 탄 종류별 오브젝트 풀, LinkedList를 감싼 구조체로 GC 할당 없는 순회, ms 단위 고정 업데이트</p></article>
-      <article class="card rv"><div class="top"><span class="stack">Unity · C#</span><span class="vis">PRIVATE</span></div><h3>Sathla</h3><p>플레이어, NPC, 폭탄이 등장하는 2D 액션.</p><p class="d">UnityHFSM 기반 NPC 추적·공격 AI, 피격·기절 처리, Ready·Playing·HitPause·Result 상태 관리</p></article>
-      <article class="card rv"><div class="top"><span class="stack">C# · WinForms</span><a class="vis" href="https://github.com/LeeMyeungJun/AtlasUIEditor" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>AtlasUIEditor</h3><p>아틀라스를 불러와 게임 UI를 배치하고 JSON으로 저장하는 편집기.</p><p class="d">노드 트리 + 속성 창, 속성 창에는 감싼 객체만 노출해 수정과 화면 갱신을 한곳에서 처리, 단색 배경 이미지에서 스프라이트 영역 자동 추출</p></article>
-      <article class="card rv"><div class="top"><span class="stack">C# · WinForms</span><a class="vis" href="https://github.com/LeeMyeungJun/TextureAtlasExporter" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>TextureAtlasExporter</h3><p>폴더의 이미지를 아틀라스 PNG와 JSON으로 묶는 툴.</p><p class="d">이진 트리 bin packing(오른쪽·아래로 확장), 정렬 옵션, 2의 거듭제곱 크기, 미리보기</p></article>
-      <article class="card rv"><div class="top"><span class="stack">C# · Win32</span><a class="vis" href="https://github.com/LeeMyeungJun/CLI-Translator" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>CLI-Translator</h3><p>콘솔 창의 글자를 읽어 번역하고, 입력도 보내는 툴.</p><p class="d">콘솔 버퍼 직접 읽기, INPUT_RECORD 키 입력 주입, 전각 문자 폭 계산, 요청 속도 제한</p></article>
-      <article class="card rv"><div class="top"><span class="stack">C# · FFmpeg</span><a class="vis" href="https://github.com/LeeMyeungJun/Universal-Audio-Converter" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>Universal Audio Converter</h3><p>게임용 오디오를 폴더 단위로 일괄 변환하는 툴.</p><p class="d">확장자별 FFmpeg 인자 구성, 처리 로그</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity · C#</span><span class="vis">사일로</span></div><h3>3매치 레벨툴</h3><p class="meta"><span><b>기간</b>2025.12 (7일)</span><span><b>역할</b>레벨툴 제작</span></p><p>3매치 게임의 레벨 제작 생산성을 높이는 툴.</p><p class="d">Unity GUIEditor로 제작</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity · C#</span><span class="vis">사일로</span></div><h3>스도쿠 (프로토타입)</h3><p class="meta"><span><b>기간</b>2024.02 – 2025.12</span><span><b>역할</b>게임 클라이언트</span></p><p>대용량 문제 데이터를 위한 데이터 시스템 재설계.</p><p class="d">JSON으로 관리하던 문제를 1만 문제도 문제없는 바이너리 파일로 변경</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity · C#</span><a class="vis" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/TheMonster_TeamProject" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>TheMonster</h3><p class="meta"><span><b>팀</b>프로그래머 3인</span><span><b>역할</b>몬스터, 최적화, 일정·프로젝트 관리</span></p><p>3인칭 TPS 팀 프로젝트.</p><p class="d">직접 만든 비헤이비어 트리와 EQS(NavMesh 경로 가능 여부·거리로 지점 점수화), 시네머신 카메라 연출</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity · XR</span><a class="vis" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/TheFuture_VRPorejct" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>TheFuture</h3><p class="meta"><span><b>팀</b>3인 (프로그래머 2 · 기획 1)</span><span><b>역할</b>몬스터 외 콘텐츠, 최적화, 일정 관리</span></p><p>색을 바꿔 쓰는 페인트 건의 VR FPS 퍼즐.</p><p class="d">템플릿 메서드 패턴으로 색별 능력 분리, 베지어 가이드 라인, LOD·오클루전 컬링·라이트맵 최적화</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unreal · C++</span><a class="vis" href="https://github.com/LeeMyeungJun/Portfolio/tree/master/Unreal_Project" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>UC02 Action</h3><p>근접·마법 액션과 적 AI를 갖춘 Unreal C++ 액션.</p><p class="d">무기별 장착·공격 클래스와 데이터 에셋, 애님 노티파이로 콤보·충돌 타이밍, 비헤이비어 트리 서비스·태스크</p></article>
+      <article class="card rv"><div class="top"><span class="stack">.NET 9 WPF · C++20</span><span class="vis">PRIVATE</span></div><h3>AnimTool25D</h3><p class="meta"><span><b>역할</b>설계·검증, 구현은 AI 에이전트</span></p><p>2D 리깅·애니메이션 저작 툴과 Godot GDExtension 런타임.</p><p class="d">물리 제약 시뮬레이터, 아틀라스 패커, 결정론적 export, Spine 4.1 가져오기·내보내기</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Godot 4.7 · 3D</span><span class="vis">PRIVATE</span></div><h3>Snack Please</h3><p class="meta"><span><b>역할</b>설계·검증, 구현은 AI 에이전트</span></p><p>손님을 받고 음식을 파는 3D 레스토랑 운영 게임 (가제).</p><p class="d">메뉴 카탈로그 기반 주문, 드라이브스루, 직원 고용. 볼트 기반 작업 계약을 처음 실전 적용</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Godot 4.7 · C#</span><span class="vis">PRIVATE</span></div><h3>Match3 Runtime</h3><p class="meta"><span><b>역할</b>설계·검증, 구현은 AI 에이전트</span></p><p>C# 베이스 템플릿 위의 매치3 퍼즐 런타임.</p><p class="d">특수 블록 5종과 최대 256회 연쇄, 매치가 생기지 않는 셔플, JSON 규칙 데이터</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity 2022.3 · C#</span><a class="vis" href="https://github.com/LeeMyeungJun/CodeStyle" target="_blank" rel="noopener">PUBLIC ↗</a></div><h3>CodeStyle</h3><p>코드 구조를 보여 주기 위한 탄막 피하기 게임.</p><p class="d">Simulator partial 분리, 탄 종류별 오브젝트 풀, GC 할당 없는 순회, ms 단위 고정 업데이트</p></article>
+      <article class="card rv"><div class="top"><span class="stack">Unity · C#</span><span class="vis">PRIVATE</span></div><h3>Sathla</h3><p>플레이어, NPC, 폭탄이 등장하는 2D 액션.</p><p class="d">UnityHFSM 기반 NPC 추적·공격 AI, Ready·Playing·HitPause·Result 상태 관리</p></article>
     </div>
 
-    <div class="sec-head rv" style="margin-top:96px">
-      <span class="eyebrow">Experiments</span>
-      <h2>그 밖의 작업</h2>
+    <div class="sec-head rv" style="margin-top:72px;margin-bottom:24px">
+      <span class="eyebrow">Tools · Experiments</span>
+      <h2 style="font-size:clamp(22px,3vw,30px)">툴과 실험작</h2>
     </div>
-    <div class="grid">
-      <article class="card rv"><div class="top"><span class="stack">MapleStory Worlds · mLua</span><span class="vis">PRIVATE</span></div><h3>Maple Rhythm</h3><p>4키 리듬게임. 판정·콤보·에너지, 노트 풀, 결과 연출, 곡 선택.</p><p class="d">차트 JSON을 읽어 곡 데이터 스크립트를 자동 생성하는 변환기(Node.js)</p></article>
-      <article class="card rv"><div class="top"><span class="stack">Godot 4.7 · C#</span><span class="vis">PRIVATE</span></div><h3>Run Idle · Little Puppy</h3><p>베이스 템플릿에서 파생한 방치형 러너와 강아지 육성 게임.</p><p class="d">장비·업그레이드 비용 곡선·오프라인 보상, 강아지의 숨은 상태 수치와 성격</p></article>
-      <article class="card rv"><div class="top"><span class="stack">Go · JavaScript · MCP</span><span class="vis">PRIVATE</span></div><h3>Figma Name Agent</h3><p>Figma 게임 화면의 리소스 이름을 규칙에 맞게 정리하는 AI 에이전트용 도구.</p><p class="d">MCP 도구 등록, 화면 트리·스크린샷 제공, 미리보기 기본·승인 후 적용</p></article>
-      <article class="card rv"><div class="top"><span class="stack">Python · Obsidian</span><span class="vis">PRIVATE</span></div><h3>Game Project AI Vault</h3><p>게임 저장소에 넣어 쓰는 AI 작업 볼트 템플릿.</p><p class="d">세션 게이트, Task 계약, 볼트 구조 검증과 검색 라우팅</p></article>
-      <article class="card rv"><div class="top"><span class="stack">Python · PowerShell</span><span class="vis">PRIVATE</span></div><h3>DesktopPet</h3><p>Live2D 데스크톱 펫에 로컬 LLM과 감정 분석을 연결한 설치 자동화.</p><p class="d">대화 턴 단위 표정 안정화, 로컬 장기 기억 검색, 자동 테스트</p></article>
-    </div>
+    <ul class="oneline rv">
+      <li><b>AtlasUIEditor</b>아틀라스로 게임 UI를 배치하고 JSON으로 저장하는 편집기<code>C# · WinForms</code> <a class="chip pub" href="https://github.com/LeeMyeungJun/AtlasUIEditor" target="_blank" rel="noopener">PUBLIC ↗</a></li>
+      <li><b>TextureAtlasExporter</b>이진 트리 bin packing으로 이미지를 아틀라스 PNG·JSON으로 묶는 툴<code>C# · WinForms</code> <a class="chip pub" href="https://github.com/LeeMyeungJun/TextureAtlasExporter" target="_blank" rel="noopener">PUBLIC ↗</a></li>
+      <li><b>CLI-Translator</b>콘솔 버퍼를 읽어 번역하고 키 입력을 주입하는 툴<code>C# · Win32</code> <a class="chip pub" href="https://github.com/LeeMyeungJun/CLI-Translator" target="_blank" rel="noopener">PUBLIC ↗</a></li>
+      <li><b>Universal Audio Converter</b>게임용 오디오를 폴더 단위로 일괄 변환<code>C# · FFmpeg</code> <a class="chip pub" href="https://github.com/LeeMyeungJun/Universal-Audio-Converter" target="_blank" rel="noopener">PUBLIC ↗</a></li>
+      <li><b>Maple Rhythm</b>메이플스토리 월드 4키 리듬게임, 차트 JSON → 곡 데이터 변환기<code>mLua · Node.js</code></li>
+      <li><b>Run Idle · Little Puppy</b>베이스 템플릿에서 파생한 방치형 러너와 강아지 육성 게임<code>Godot · C#</code></li>
+      <li><b>Figma Name Agent</b>Figma 리소스 이름을 규칙대로 정리하는 AI 에이전트용 MCP 도구, 승인 후에만 적용<code>Go · JS · MCP</code></li>
+      <li><b>Game Project AI Vault</b>세션 게이트·Task 계약·구조 검증을 갖춘 AI 작업 볼트 템플릿<code>Python · Obsidian</code></li>
+      <li><b>DesktopPet</b>Live2D 데스크톱 펫에 로컬 LLM과 감정 분석 연결<code>Python · PowerShell</code></li>
+    </ul>
   </div>
 </section>
 
